@@ -29,6 +29,9 @@ if ($options['register'] ?? true) {
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->middleware('guest')
+    ->name('index');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/threads', 'ThreadsController@index')->name('threads');
+});
