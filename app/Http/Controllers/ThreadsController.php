@@ -126,4 +126,9 @@ class ThreadsController extends Controller
             'thread' => $thread,
         ]);
     }
+
+    public function show(Thread $thread)
+    {
+        return view('threads.show', ['thread' => $thread]);
+    }
 }
