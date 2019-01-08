@@ -23,13 +23,24 @@ class ThreadsController extends Controller
         return $thread;
     }
 
-    public function validator($data)
+    public function update(Thread $thread)
+    {
+        $this->authorize('update', $thread);
+
+        $this->validator(request()->all(), $thread)->validate();
+
+        $thread = $this->storeOrUpdate(request()->all(), $thread);
+
+        return $thread;
+    }
+
+    public function validator($data, $thread = null)
     {
         return Validator::make($data, [
             'title' => [
                 'required',
                 'min:3',
-                Rule::unique('threads'),
+                Rule::unique('threads')->ignore($thread),
                 'not_regex:/^.*\d.*/i'
             ],
             'content' => [
@@ -49,7 +60,7 @@ class ThreadsController extends Controller
             $threads[0]->delete();
         }
 
-        // Create or update a thread
+        // Create or update the thread
         $data['created_by'] = auth()->id();
 
         if (!$thread) {

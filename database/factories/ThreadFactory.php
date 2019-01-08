@@ -6,7 +6,7 @@ use App\User;
 $factory->define(App\Thread::class, function (Faker $faker) {
     return [
         'created_by' => factory(User::class)->create()->id,
-        'title' => str_random(25),
+        'title' => ucwords($faker->words(3, true)),
         'content' => $faker->paragraph,
     ];
 });
