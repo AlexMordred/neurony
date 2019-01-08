@@ -8,6 +8,10 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        return view('profile.show');
+        $threads = auth()->user()->threads;
+
+        return request()->wantsJson()
+            ? $threads
+            : view('profile.show');
     }
 }
