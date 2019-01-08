@@ -33,5 +33,7 @@ Route::get('/', function () {
     ->name('index');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/profile', 'ProfileController@show')->name('profile');
+
     Route::get('/threads', 'ThreadsController@index')->name('threads');
 });
