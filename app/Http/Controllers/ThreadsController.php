@@ -34,7 +34,10 @@ class ThreadsController extends Controller
 
         $thread = $this->storeOrUpdate(request()->all(), $thread);
 
-        return $thread;
+        return request()->wantsJson()
+            ? $thread
+            // TODO: Redirect to the thread page
+            : redirect()->route('profile');
     }
 
     public function destroy(Thread $thread)
@@ -91,6 +94,13 @@ class ThreadsController extends Controller
     {
         return view('threads.edit', [
             'thread' => null,
+        ]);
+    }
+
+    public function edit(Thread $thread)
+    {
+        return view('threads.edit', [
+            'thread' => $thread,
         ]);
     }
 }

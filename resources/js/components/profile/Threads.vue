@@ -9,7 +9,7 @@
                 </div>
 
                 <div>
-                    <a href="#" class="btn btn-sm btn-warning">Edit</a>
+                    <a :href="editUrl(thread)" class="btn btn-sm btn-warning">Edit</a>
                     <a href="#" class="btn btn-sm btn-danger">Delete</a>
                 </div>
             </div>
@@ -20,6 +20,12 @@
 <script>
 export default {
     props: ['threads'],
+
+    methods: {
+        editUrl(thread) {
+            return `/threads/edit/${thread.id}`;
+        },
+    }
 }
 </script>
 

@@ -41,4 +41,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/threads/{thread}', 'ThreadsController@destroy')->name('threads.destroy');
 
     Route::get('/threads/create', 'ThreadsController@create')->name('threads.create');
+    Route::get('/threads/edit/{thread}', 'ThreadsController@edit')->name('threads.edit');
 });

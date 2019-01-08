@@ -3,10 +3,16 @@
 @section('content')
 <div class="container">
     <div class="justify-content-center">
-        <h1>New Thread</h1>
+        <h1>
+            {{ $thread ? 'Edit Thread' : 'New Thread' }}
+        </h1>
 
-        <form action="{{ route('threads.store') }}" method="POST">
+        <form action="{{ $thread ? route('threads.update', $thread) : route('threads.store') }}" method="POST">
             @csrf
+
+            @if ($thread)
+                @method('PUT')
+            @endif
 
             <div class="form-group row">
                 <label for="title" class="col-md-2 col-form-label text-md-right">Title</label>
@@ -16,7 +22,7 @@
                         type="text"
                         class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}"
                         name="title"
-                        value="{{ old('title') }}">
+                        value="{{ old('title') ?? ($thread ? $thread->title : '') }}">
 
                     @if ($errors->has('title'))
                         <span class="invalid-feedback" role="alert">
@@ -33,7 +39,7 @@
                     <textarea id="content"
                         type="text"
                         class="form-control{{ $errors->has('content') ? ' is-invalid' : '' }}"
-                        name="content">{{ old('content') }}</textarea>
+                        name="content">{{ old('content') ?? ($thread ? $thread->content : '') }}</textarea>
 
                     @if ($errors->has('content'))
                         <span class="invalid-feedback" role="alert">

@@ -1783,7 +1783,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['threads']
+  props: ['threads'],
+  methods: {
+    editUrl: function editUrl(thread) {
+      return "/threads/edit/".concat(thread.id);
+    }
+  }
 });
 
 /***/ }),
@@ -6059,7 +6064,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -37294,29 +37299,29 @@ var render = function() {
             ])
           ]),
           _vm._v(" "),
-          _vm._m(0, true)
+          _c("div", [
+            _c(
+              "a",
+              {
+                staticClass: "btn btn-sm btn-warning",
+                attrs: { href: _vm.editUrl(thread) }
+              },
+              [_vm._v("Edit")]
+            ),
+            _vm._v(" "),
+            _c(
+              "a",
+              { staticClass: "btn btn-sm btn-danger", attrs: { href: "#" } },
+              [_vm._v("Delete")]
+            )
+          ])
         ])
       ])
     }),
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [
-      _c("a", { staticClass: "btn btn-sm btn-warning", attrs: { href: "#" } }, [
-        _vm._v("Edit")
-      ]),
-      _vm._v(" "),
-      _c("a", { staticClass: "btn btn-sm btn-danger", attrs: { href: "#" } }, [
-        _vm._v("Delete")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
