@@ -28,6 +28,7 @@ window.VoerroModal = VoerroModal;
 
 // Local components
 Vue.component('v-profile-threads', require('./components/profile/Threads.vue').default);
+Vue.component('v-threads-page', require('./components/threads/Page.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

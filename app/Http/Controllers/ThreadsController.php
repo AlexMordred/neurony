@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Thread;
 use Illuminate\Validation\Rule;
+use App\User;
 
 class ThreadsController extends Controller
 {
@@ -19,7 +20,7 @@ class ThreadsController extends Controller
             $query->orderBy('id', 'desc');
         }
 
-        if (request()->has('authors')) {
+        if (request('authors')) {
             $authors = explode(',', request('authors'));
             
             if (count($authors)) {
@@ -31,7 +32,9 @@ class ThreadsController extends Controller
 
         return request()->wantsJson()
             ? $threads
-            : view('threads.index');
+            : view('threads.index', [
+                'users' => User::all(),
+            ]);
     }
 
     public function store()

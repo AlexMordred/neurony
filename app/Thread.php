@@ -11,4 +11,11 @@ class Thread extends Model
         'title',
         'content',
     ];
+
+    protected $with = ['author'];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }
