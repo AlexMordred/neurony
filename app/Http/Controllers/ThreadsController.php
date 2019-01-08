@@ -11,7 +11,27 @@ class ThreadsController extends Controller
 {
     public function index()
     {
-        return view('threads.index');
+        $query = Thread::query();
+
+        if (request()->has('sort') && request('sort') == 'abc') {
+            $query->orderBy('title');
+        } else {
+            $query->orderBy('id', 'desc');
+        }
+
+        if (request()->has('authors')) {
+            $authors = explode(',', request('authors'));
+            
+            if (count($authors)) {
+                $query->whereIn('created_by', $authors);
+            }
+        }
+
+        $threads = $query->paginate(5);
+
+        return request()->wantsJson()
+            ? $threads
+            : view('threads.index');
     }
 
     public function store()
