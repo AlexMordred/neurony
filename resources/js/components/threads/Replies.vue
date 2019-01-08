@@ -19,15 +19,19 @@
                 :page="page"
                 @pageChanged="changePage"></v-paginator>
         </div>
+
+        <v-new-reply :thread-id="threadId" @replySaved="fetchReplies"></v-new-reply>
     </div>
 </template>
 
 <script>
 import Paginator from '../Paginator';
+import NewReply from './NewReply';
 
 export default {
     components: {
         'v-paginator': Paginator,
+        'v-new-reply': NewReply,
     },
 
     props: ['threadId'],
