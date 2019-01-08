@@ -30,6 +30,7 @@ window.VoerroModal = VoerroModal;
 Vue.component('v-profile-threads', require('./components/profile/Threads.vue').default);
 Vue.component('v-threads-page', require('./components/threads/Page.vue').default);
 Vue.component('v-thread-replies', require('./components/threads/Replies.vue').default);
+Vue.component('v-admin-threads', require('./components/admin/Threads.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
