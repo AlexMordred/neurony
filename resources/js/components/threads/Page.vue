@@ -44,7 +44,7 @@
                         <b>
                             <a :href="`/threads/${thread.id}`">{{ thread.title }}</a>
                         </b>
-                        (N replies)
+                        ({{ thread.replies_count }} replies)
                     </p>
 
                     Posted by <b>{{ thread.author.name }}</b> at <b>{{ thread.created_at }} UTC</b>
