@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Thread extends Model
 {
@@ -24,5 +25,15 @@ class Thread extends Model
     public function replies()
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function collaborators()
+    {
+        return $this->belongsToMany(
+            User::class,
+            'thread_collaborators',
+            'thread_id',
+            'collaborator_id'
+        );
     }
 }
