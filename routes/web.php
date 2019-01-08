@@ -35,6 +35,7 @@ Route::get('/', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', 'ProfileController@show')->name('profile');
 
+    // Threads
     Route::get('/threads', 'ThreadsController@index')->name('threads');
     Route::post('/threads', 'ThreadsController@store')->name('threads.store');
     Route::put('/threads/{thread}', 'ThreadsController@update')->name('threads.update');
@@ -43,4 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/threads/create', 'ThreadsController@create')->name('threads.create');
     Route::get('/threads/edit/{thread}', 'ThreadsController@edit')->name('threads.edit');
     Route::get('/threads/{thread}', 'ThreadsController@show')->name('threads.show');
+
+    // Thread replies
+    Route::get('/threads/{thread}/replies', 'ThreadRepliesController@index')->name('threads.replies');
 });
