@@ -54,7 +54,7 @@ class ThreadPolicy
      */
     public function delete(User $user, Thread $thread)
     {
-        //
+        return $this->update($user, $thread);
     }
 
     /**

@@ -34,6 +34,15 @@ class ThreadsController extends Controller
         return $thread;
     }
 
+    public function destroy(Thread $thread)
+    {
+        $this->authorize('delete', $thread);
+
+        $thread->delete();
+
+        return response()->json();
+    }
+
     public function validator($data, $thread = null)
     {
         return Validator::make($data, [
