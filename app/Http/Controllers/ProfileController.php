@@ -8,10 +8,10 @@ class ProfileController extends Controller
 {
     public function show()
     {
-        $threads = auth()->user()->threads;
+        $threads = auth()->user()->threads()->orderBy('id', 'DESC')->get();
 
         return request()->wantsJson()
             ? $threads
-            : view('profile.show');
+            : view('profile.show', ['threads' => $threads]);
     }
 }
