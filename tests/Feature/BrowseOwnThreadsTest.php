@@ -24,6 +24,11 @@ class BrowseOwnThreadsTest extends TestCase
             ->getJson(route('profile'))
             ->json();
 
-        $this->assertEquals($ownThreads->toArray(), $threads);
+        $ownThreads = $ownThreads->sortByDesc('id')->pluck('id');
+
+        $this->assertEquals(
+            $ownThreads->toArray(),
+            collect($threads)->pluck('id')->toArray()
+        );
     }
 }
