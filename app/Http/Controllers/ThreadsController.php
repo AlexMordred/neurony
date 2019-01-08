@@ -45,8 +45,7 @@ class ThreadsController extends Controller
 
         return request()->wantsJson()
             ? $thread
-            // TODO: Redirect to the newly created thread page
-            : redirect()->route('profile');
+            : redirect()->route('threads.show', $thread);
     }
 
     public function update(Thread $thread)
@@ -59,8 +58,7 @@ class ThreadsController extends Controller
 
         return request()->wantsJson()
             ? $thread
-            // TODO: Redirect to the thread page
-            : redirect()->route('profile');
+            : redirect()->route('threads.show', $thread);
     }
 
     public function destroy(Thread $thread)
