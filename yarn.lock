@@ -548,6 +548,13 @@
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
 
+"@voerro/vue-modal@^1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@voerro/vue-modal/-/vue-modal-1.4.0.tgz#3d3d52c1e32a3100f99a8a48dabfe26ea633246f"
+  integrity sha512-upGseOZQF5Y9ujRJXt4TZMFrO8bUv/H2f4ZbK42pNJWW57sFAXcZ+b6FSRUQc2dViwUZFI78HKv3Wvpp1pKczw==
+  dependencies:
+    vue "^2.5.0"
+
 "@vue/component-compiler-utils@^2.4.0":
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/@vue/component-compiler-utils/-/component-compiler-utils-2.4.0.tgz#a887b57ff06e562873a0ba1dfcf1f8068efa6e26"
@@ -5381,9 +5388,10 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vue@^2.5.17:
+vue@^2.5.0, vue@^2.5.17:
   version "2.5.21"
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.21.tgz#3d33dcd03bb813912ce894a8303ab553699c4a85"
+  integrity sha512-Aejvyyfhn0zjVeLvXd70h4hrE4zZDx1wfZqia6ekkobLmUZ+vNFQer53B4fu0EjWBSiqApxPejzkO1Znt3joxQ==
 
 watchpack@^1.5.0:
   version "1.6.0"

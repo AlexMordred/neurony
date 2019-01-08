@@ -17,6 +17,6 @@
         <a href="{{ route('threads.create') }}" class="btn btn-sm btn-success">New Thread</a>
     </h2>
 
-    <v-profile-threads :threads="{{ $threads }}"></v-profile-threads>
+    <v-profile-threads :data-threads="{{ $threads }}"></v-profile-threads>
 </div>
 @endsection

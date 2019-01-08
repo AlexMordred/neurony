@@ -20,6 +20,13 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
+// Vendor components
+import { Modal, VoerroModal } from '@voerro/vue-modal';
+
+Vue.component('v-modal', Modal);
+window.VoerroModal = VoerroModal;
+
+// Local components
 Vue.component('v-profile-threads', require('./components/profile/Threads.vue').default);
 
 /**
