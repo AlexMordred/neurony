@@ -12,7 +12,10 @@
         <b>E-mail: </b>{{ auth()->user()->email }}
     </p>
 
-    <h2>My Threads</h2>
+    <h2>
+        My Threads
+        <a href="{{ route('threads.create') }}" class="btn btn-sm btn-success">New Thread</a>
+    </h2>
 
     <v-profile-threads :threads="{{ $threads }}"></v-profile-threads>
 </div>

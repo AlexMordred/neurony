@@ -20,7 +20,10 @@ class ThreadsController extends Controller
 
         $thread = $this->storeOrUpdate(request()->all());
 
-        return $thread;
+        return request()->wantsJson()
+            ? $thread
+            // TODO: Redirect to the newly created thread page
+            : redirect()->route('profile');
     }
 
     public function update(Thread $thread)
@@ -57,6 +60,9 @@ class ThreadsController extends Controller
                 'max:255',
                 'regex:/^.*?\.$/i',
             ],
+        ], [
+            'title.not_regex' => 'Title cannot contain numbers.',
+            'content.regex' => 'The content must end with a dot.'
         ]);
     }
 
@@ -79,5 +85,12 @@ class ThreadsController extends Controller
         }
 
         return $thread;
+    }
+
+    public function create()
+    {
+        return view('threads.edit', [
+            'thread' => null,
+        ]);
     }
 }

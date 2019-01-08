@@ -39,4 +39,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/threads', 'ThreadsController@store')->name('threads.store');
     Route::put('/threads/{thread}', 'ThreadsController@update')->name('threads.update');
     Route::delete('/threads/{thread}', 'ThreadsController@destroy')->name('threads.destroy');
+
+    Route::get('/threads/create', 'ThreadsController@create')->name('threads.create');
 });
